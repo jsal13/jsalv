@@ -1,32 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="rgba(0,0,0,0)"
+      flat
+      dark
+      hide-on-scroll
+    >
+      <v-flex class="d-flex">
+        <v-btn
+          icon
+          large
+          color="pink lighten-3"
+          @click="switchLightDarkMode"
+        >
+          <v-icon>
+            {{ $vuetify.theme.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}
+          </v-icon>
+        </v-btn>
+
+        <v-btn
+          icon
+          large
+          color="primary"
+          href="https://www.github.com/jsal13/"
+          target="_blank"
+        >
+          <v-icon>
+            mdi-github
+          </v-icon>
+        </v-btn>
+      </v-flex>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-#nav {
-  padding: 30px;
+@Component
+export default class App extends Vue {
+  switchLightDarkMode() {
+    this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+  }
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
