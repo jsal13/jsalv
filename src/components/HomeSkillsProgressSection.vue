@@ -7,11 +7,10 @@
     >
       {{ row.item }}
       <v-progress-linear
-        color="#1aa179"
-        background-color="#06281e"
+        color="blue accent-2"
         rounded
         width="100px"
-        height="5"
+        height="3"
         :value="25 * (row.experience) - 25"
       />
     </p>
