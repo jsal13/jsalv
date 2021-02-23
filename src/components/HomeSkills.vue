@@ -10,6 +10,10 @@
         :skills="skillsData"
       />
       <home-skills-progress-section
+        :title="'Applied Math'"
+        :skills="skillsMath"
+      />
+      <home-skills-progress-section
         :title="'Devops'"
         :skills="skillsDevops"
       />
@@ -30,45 +34,52 @@ import { Component, Vue } from 'vue-property-decorator';
 import HomeSkillsProgressSection from '@/components/HomeSkillsProgressSection.vue';
 
 interface SkillsAttribute {
+  // Experience is 1 - 5, scaled to 100.
   itemType: string;
   item: string;
-  experience: string;
+  experience: number;
 }
 
 const skillsData: SkillsAttribute[] = [
-  { itemType: 'data', item: 'Python & Pandas', experience: 'very high' },
-  { itemType: 'data', item: 'PostgreSQL', experience: 'very high' },
-  { itemType: 'data', item: 'Statistics', experience: 'very high' },
-  { itemType: 'data', item: 'Statistical Modeling', experience: 'very high' },
-  { itemType: 'data', item: 'Linear Algebra', experience: 'very high' },
-  { itemType: 'data', item: 'BI Tool Management (Looker)', experience: 'very high' },
-  { itemType: 'data', item: 'Data Engineering', experience: 'high' },
-  { itemType: 'data', item: 'Visualization', experience: 'average' },
-  { itemType: 'data', item: 'R', experience: 'below average' },
+  { itemType: 'data', item: 'Python & Pandas', experience: 5 },
+  { itemType: 'data', item: 'PostgreSQL', experience: 5 },
+  { itemType: 'data', item: 'BI Tools (Looker)', experience: 5 },
+  { itemType: 'data', item: 'Data Engineering', experience: 4 },
+  { itemType: 'data', item: 'Data Visualization', experience: 3 },
+  { itemType: 'data', item: 'R', experience: 2 },
+];
+
+const skillsMath: SkillsAttribute[] = [
+  { itemType: 'data', item: 'Statistics', experience: 5 },
+  { itemType: 'data', item: 'Linear Algebra', experience: 5 },
+  { itemType: 'data', item: 'Data Modeling', experience: 5 },
 ];
 
 const skillsDevops: SkillsAttribute[] = [
-  { itemType: 'devops', item: 'Docker', experience: 'very high' },
-  { itemType: 'devops', item: 'General CI/CD Infra (Jenkins, Circle, etc.)', experience: 'high' },
-  { itemType: 'devops', item: 'AWS (Solutions Architect)', experience: 'average' },
-  { itemType: 'devops', item: 'GCP (Cloud Engineer)', experience: 'below average' },
+  { itemType: 'devops', item: 'Docker', experience: 5 },
+  { itemType: 'devops', item: 'CI/CD (Jenkins, Circle)', experience: 4 },
+  { itemType: 'devops', item: 'AWS (Solutions Architect)', experience: 3 },
+  { itemType: 'devops', item: 'GCP (Cloud Engineer)', experience: 2 },
 ];
 
 const skillsWebDev: SkillsAttribute[] = [
-  { itemType: 'webdev', item: 'HTML & CSS', experience: 'very high' },
-  { itemType: 'webdev', item: 'JavaScript', experience: 'high' },
-  { itemType: 'webdev', item: 'vue.js', experience: 'high' },
-  { itemType: 'webdev', item: 'Typescript', experience: 'average' },
+  { itemType: 'webdev', item: 'HTML & CSS', experience: 5 },
+  { itemType: 'webdev', item: 'JavaScript', experience: 4 },
+  { itemType: 'webdev', item: 'vue.js', experience: 4 },
+  { itemType: 'webdev', item: 'Typescript', experience: 3 },
 ];
 
 const skillsGameMaking: SkillsAttribute[] = [
-  { itemType: 'games', item: 'C#', experience: 'average' },
-  { itemType: 'games', item: 'Unity', experience: 'below average' },
+  { itemType: 'games', item: 'C#', experience: 3 },
+  { itemType: 'games', item: 'Unity', experience: 2 },
+  { itemType: 'games', item: 'Level Design', experience: 2 },
 ];
 
 @Component({ components: { HomeSkillsProgressSection } })
 export default class HomeSkills extends Vue {
   skillsData = skillsData;
+
+  skillsMath = skillsMath;
 
   skillsDevops = skillsDevops;
 
