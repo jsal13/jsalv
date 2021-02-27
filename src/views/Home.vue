@@ -47,9 +47,9 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import HomeSkills from '@/components/HomeSkills.vue';
-import HomeApps from '@/components/HomeApps.vue';
+import Apps from '@/views/Apps.vue';
 
-@Component({ components: { HomeSkills, HomeApps } })
+@Component({ components: { HomeSkills, Apps } })
 export default class Home extends Vue {}
 </script>
 

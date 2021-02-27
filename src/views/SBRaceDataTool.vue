@@ -49,43 +49,43 @@
             <v-text-field
               v-model="nameRunner1"
               class="px-2"
-              label="Runner1"
+              label="Runner 1"
               placeholder="Runner 1"
               outlined
             />
             <v-text-field
               v-model="nameRunner2"
               class="px-2"
-              label="Runner2"
+              label="Runner 2"
               placeholder="Runner 2"
               outlined
             />
             <v-text-field
               v-model="nameRunner3"
               class="px-2"
-              label="Runner3"
+              label="Runner 3"
               placeholder="Runner 3"
               outlined
             />
             <v-text-field
               v-model="nameRunner4"
               class="px-2"
-              label="Runner4"
+              label="Runner 4"
               placeholder="Runner 4"
               outlined
             />
             <v-text-field
               v-model="nameGamePicker"
               class="px-2"
-              label="GP1"
+              label="Game Picker"
               placeholder="Game Picker"
               outlined
             />
-            <v-text-field
+            <v-select
               v-model="difficulty"
+              :items="difficultyList"
               class="px-2"
               label="Race Diffulty Level"
-              placeholder="Beginner"
               outlined
             />
           </v-flex>
@@ -148,11 +148,11 @@
             </tr>
             <tr>
               <td>{{ difficulty !== null ? difficulty.toLowerCase() : "" }}</td>
-              <td>{{ [nameC1, nameC2].filter(x => x).join(", ") }}</td>
-              <td>{{ nameP1 }}</td>
-              <td>{{ nameP2 }}</td>
-              <td>{{ nameGamePicker }}</td>
-              <td>{{ [nameRunner1, nameRunner2, nameRunner3, nameRunner4].filter(x => x).join(", ") }}</td>
+              <td>{{ [nameC1, nameC2].filter(x => x).map(x => x.toLowerCase()).join(", ") }}</td>
+              <td>{{ nameP1 ? nameP1.toLowerCase() : nameP1 }}</td>
+              <td>{{ nameP2 ? nameP2.toLowerCase() : nameP2 }}</td>
+              <td>{{ nameGamePicker ? nameGamePicker.toLowerCase() : nameGamePicker }}</td>
+              <td>{{ [nameRunner1, nameRunner2, nameRunner3, nameRunner4].filter(x => x).map(x => x.toLowerCase()).join(", ") }}</td>
               <td>{{ gamesAndConsole }}</td>
             </tr>
           </table>
@@ -179,7 +179,8 @@ export default {
       nameRunner3: null,
       nameRunner4: null,
       gamesAndConsole: null,
-      difficulty: null,
+      difficulty: 'Beginner',
+      difficultyList: ['Beginner', 'Intermediate'],
       sneaksquadURL,
     };
   },
