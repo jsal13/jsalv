@@ -4,7 +4,7 @@
       class="card"
       style="width: 250px;"
     >
-      <router-link to="/app/readme-gen">
+      <router-link :to="link">
         <img
           :src="image"
           class="card-img-top"
@@ -14,7 +14,7 @@
       </router-link>
       <div class="card-body">
         <h5 class="card-title">
-          <router-link to="/app/readme-gen">
+          <router-link :to="link">
             {{ title }}
           </router-link>
         </h5>
@@ -38,6 +38,8 @@ export default class HomeAppsCard extends Vue {
   @Prop() alt!: string;
 
   @Prop() title!: string;
+
+  @Prop() link!: string;
 }
 </script>
 

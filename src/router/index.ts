@@ -4,6 +4,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Apps from '@/views/Apps.vue';
 import ReadmeGen from '@/views/ReadmeGen.vue';
+import SBRaceDataTool from '@/views/SBRaceDataTool.vue';
 
 Vue.use(VueRouter);
 
@@ -23,7 +24,11 @@ const routes: Array<RouteConfig> = [
     name: 'ReadmeGen',
     component: ReadmeGen,
   },
-
+  {
+    path: '/app/race-data-tool',
+    name: 'SBRaceDataTool',
+    component: SBRaceDataTool,
+  },
 ];
 
 const router = new VueRouter({
