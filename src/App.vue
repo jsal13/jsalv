@@ -42,6 +42,16 @@
             mdi-github
           </v-icon>
         </v-btn>
+
+        <router-link to="/app">
+          <v-btn
+            x-small
+            class="mt-3 ml-2"
+            color="primary"
+          >
+            Apps
+          </v-btn>
+        </router-link>
       </v-flex>
     </v-app-bar>
 

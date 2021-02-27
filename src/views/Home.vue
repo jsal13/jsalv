@@ -39,8 +39,6 @@
         </div>
       </v-container>
       <hr>
-      <home-apps />
-      <hr>
       <home-skills />
     </v-container>
   </div>
