@@ -19,6 +19,18 @@
           </v-icon>
         </v-btn>
 
+        <router-link to="/">
+          <v-btn
+            icon
+            large
+            color="primary"
+          >
+            <v-icon>
+              mdi-home
+            </v-icon>
+          </v-btn>
+        </router-link>
+
         <v-btn
           icon
           large
@@ -49,3 +61,9 @@ export default class App extends Vue {
   }
 }
 </script>
+
+<style scoped>
+a:hover {
+    text-decoration: none !important;
+}
+</style>
