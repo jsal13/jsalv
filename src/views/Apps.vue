@@ -2,30 +2,34 @@
   <div class="home-apps">
     <v-container>
       <v-container>
-        <h2 class="mb-5">
-          Apps
-        </h2>
         <v-row>
-          <home-apps-card
-            :image="require('@/assets/images/apps/sneakbike_readme_app.png')"
-            :description="descriptionREADME"
-            :title="'Sneakbike README App'"
-            :link="'/app/readme-gen'"
-            class="mx-4"
-          />
-          <home-apps-card
-            :image="require('@/assets/images/apps/sneakbike_race_data_tool.png')"
-            :description="descriptionSBRaceDataTool"
-            :title="'Sneakbike Race Data Tool'"
-            :link="'/app/race-data-tool'"
-            class="mx-4"
-          />
+          <v-col class="col-10 offset-1">
+            <h2 class="mb-5">
+              Apps
+            </h2>
+            <v-row>
+              <home-apps-card
+                :image="require('@/assets/images/apps/sneakbike_readme_app.png')"
+                :description="descriptionREADME"
+                :title="'Sneakbike README App'"
+                :link="'/app/readme-gen'"
+                class="mx-4"
+              />
+              <home-apps-card
+                :image="require('@/assets/images/apps/sneakbike_race_data_tool.png')"
+                :description="descriptionSBRaceDataTool"
+                :title="'Sneakbike Race Data Tool'"
+                :link="'/app/race-data-tool'"
+                class="mx-4"
+              />
+            </v-row>
+          </v-col>
         </v-row>
       </v-container>
-      <v-container />
     </v-container>
   </div>
 </template>
+
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import HomeAppsCard from '@/components/HomeAppsCard.vue';

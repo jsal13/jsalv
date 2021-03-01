@@ -31,6 +31,16 @@
           </v-btn>
         </router-link>
 
+        <router-link to="/app">
+          <v-btn
+            x-small
+            class="mt-3 ml-1 mr-1"
+            color="primary"
+          >
+            Apps
+          </v-btn>
+        </router-link>
+
         <v-btn
           icon
           large
@@ -42,16 +52,6 @@
             mdi-github
           </v-icon>
         </v-btn>
-
-        <router-link to="/app">
-          <v-btn
-            x-small
-            class="mt-3 ml-2"
-            color="primary"
-          >
-            Apps
-          </v-btn>
-        </router-link>
       </v-flex>
     </v-app-bar>
 
@@ -72,7 +72,7 @@ export default class App extends Vue {
 }
 </script>
 
-<style scoped>
+<style>
 a:hover {
     text-decoration: none !important;
 }

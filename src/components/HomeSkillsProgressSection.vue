@@ -1,18 +1,13 @@
 <template>
   <div class="home-skills-progress-section mr-4">
-    <h3>{{ title }}</h3>
+    <h2 class="mb-4">
+      {{ title }}
+    </h2>
     <p
       v-for="(row, idx) in skills"
       :key="`skill-${idx}`"
     >
-      {{ row.item }}
-      <v-progress-linear
-        color="blue accent-2"
-        rounded
-        width="100px"
-        height="3"
-        :value="25 * (row.experience) - 25"
-      />
+      <span :style="{color: skillColors[row.itemType]}">{{ row.item }}</span>
     </p>
   </div>
 </template>
@@ -26,18 +21,26 @@ interface SkillsAttribute {
   experience: number;
 }
 
+const skillColors: {[itemType: string]: string} = {
+  data: '#2196f3',
+  devops: '#8561c5',
+  'misc-programming': '#009688',
+};
+
 @Component
 export default class HomeSkillsProgressSection extends Vue {
   @Prop() skills!: SkillsAttribute
 
   @Prop() title!: string
+
+  skillColors = skillColors
 }
 </script>
 
 <style scoped>
 .home-skills-progress-section {
   font-size: 0.8rem !important;
-  width: 200px;
+  width: 250px;
 }
 
 </style>
