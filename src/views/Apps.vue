@@ -22,6 +22,13 @@
                 :link="'/app/race-data-tool'"
                 class="mx-4"
               />
+              <home-apps-card
+                :image="require('@/assets/images/apps/new_jersey.jpg')"
+                :description="descriptionLicensePlatePractice"
+                :title="'License Plate Practice App'"
+                :link="'/app/license-plate-practice'"
+                class="mx-4"
+              />
             </v-row>
           </v-col>
         </v-row>
@@ -39,10 +46,14 @@ We use this for Sneakbike, the retro mystery-game racing charity.`;
 
 const descriptionSBRaceDataTool = 'A tool we use in Sneakbike to simplify updating a few different fields with the same data.';
 
+const descriptionLicensePlatePractice = 'A tool to help learn blurred license plate identification for use in, for example, GeoGuessr.';
+
 @Component({ components: { HomeAppsCard } })
 export default class Apps extends Vue {
-  descriptionREADME = descriptionREADME
+  descriptionREADME = descriptionREADME;
 
-  descriptionSBRaceDataTool = descriptionSBRaceDataTool
+  descriptionSBRaceDataTool = descriptionSBRaceDataTool;
+
+  descriptionLicensePlatePractice = descriptionLicensePlatePractice;
 }
 </script>
