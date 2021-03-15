@@ -23,6 +23,13 @@
                 class="mx-4"
               />
               <home-apps-card
+                :image="require('@/assets/images/apps/sneakbike_race_data_tool.png')"
+                :description="descriptionGamepickerGameInfo"
+                :title="'Gamepicker Game Info Tool'"
+                :link="'/app/gamepicker-game-info'"
+                class="mx-4"
+              />
+              <home-apps-card
                 :image="require('@/assets/images/apps/new_jersey.jpg')"
                 :description="descriptionLicensePlatePractice"
                 :title="'License Plate Practice App'"
@@ -48,6 +55,8 @@ const descriptionSBRaceDataTool = 'A tool we use in Sneakbike to simplify updati
 
 const descriptionLicensePlatePractice = 'A tool to help learn blurred license plate identification for use in, for example, GeoGuessr.';
 
+const descriptionGamepickerGameInfo = 'Used to help gamepickers give info to commentators for Sneakbike.';
+
 @Component({ components: { HomeAppsCard } })
 export default class Apps extends Vue {
   descriptionREADME = descriptionREADME;
@@ -55,5 +64,7 @@ export default class Apps extends Vue {
   descriptionSBRaceDataTool = descriptionSBRaceDataTool;
 
   descriptionLicensePlatePractice = descriptionLicensePlatePractice;
+
+  descriptionGamepickerGameInfo = descriptionGamepickerGameInfo;
 }
 </script>
