@@ -23,7 +23,7 @@
                 class="mx-4"
               />
               <home-apps-card
-                :image="require('@/assets/images/apps/sneakbike_race_data_tool.png')"
+                :image="require('@/assets/images/apps/sneakbike_gamepicker_game_tool.png')"
                 :description="descriptionGamepickerGameInfo"
                 :title="'Gamepicker Game Info Tool'"
                 :link="'/app/gamepicker-game-info'"
