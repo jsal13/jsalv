@@ -155,7 +155,7 @@ export default class LicensePlatePractice extends Vue {
     if (this.userGuess === this.currentStateAbbr) {
       this.msgCheckState = '<span style="color: green;"> Correct!</span>';
     } else {
-      this.msgCheckState = `<span style="color: red;">Incorrect: ${this.currentState.replace('_', ' ')}</span>`;
+      this.msgCheckState = `<span style="color: red;">${this.currentState.replace('_', ' ')}</span>`;
     }
     this.styleRandomBlur = '';
   }
