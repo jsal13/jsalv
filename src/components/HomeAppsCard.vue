@@ -49,8 +49,6 @@ export default class HomeAppsCard extends Vue {
 }
 
 img {
-
   border: 1px solid #2196f3;
 }
-
 </style>

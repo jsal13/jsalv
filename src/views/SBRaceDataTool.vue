@@ -127,6 +127,21 @@
 
         <div class="my-4">
           <h3 class="mb-4">
+            Wiki Records Code:
+          </h3>
+          <p>
+            Copy-paste this code into the source code of <a
+              href="https://wiki.sneak.bike/e/en/general-resources/sneakbike-races"
+              target="_blank"
+            >the wiki for Sneakbike race history</a>.  Go to the page and hit "Edit" to look at the source code.
+          </p>
+          <prism language="html">
+            {{ wikiCode }}
+          </prism>
+        </div>
+
+        <div class="my-4">
+          <h3 class="mb-4">
             Sneaksquad Row:
           </h3>
           <p>
@@ -163,10 +178,13 @@
 </template>
 
 <script>
+import Prism from 'vue-prism-component';
+
 const sneaksquadURL = 'https://docs.google.com/spreadsheets/d/1HjUhWhGxIt8CMUG3uLbplxpnZq0h3ikcVPGRTUaa-ws/edit?usp=sharing';
 
 export default {
   name: 'RaceDataTool',
+  components: { Prism },
   data() {
     return {
       nameC1: null,
@@ -195,6 +213,17 @@ export default {
     },
     commentatorsString() {
       return this.addTwitchURL([this.nameC1, this.nameC2]).join(' || ');
+    },
+    wikiCode() {
+      return `<tr>
+  <td>MM/DD/YYYY</td>
+  <td>${this.difficulty !== null ? this.difficulty.toLowerCase() : ''}</td>
+  <td>${[this.nameC1, this.nameC2].filter((x) => x).map((x) => x.toLowerCase()).join(', ')}</td>
+  <td>${this.nameGamePicker ? this.nameGamePicker.toLowerCase() : this.nameGamePicker}</td>
+  <td>${[this.nameRunner1, this.nameRunner2, this.nameRunner3, this.nameRunner4].filter((x) => x).map((x) => x.toLowerCase()).join(', ')}</td>
+  <td>${this.gamesAndConsole}</td>
+  <td><a href="LINKTOYOUTUBE" target="_blank">Link</a></td>
+</tr>`;
     },
   },
   methods: {
@@ -235,5 +264,9 @@ th {
 td {
   max-width: 150px;
   word-wrap: break-word;
+}
+
+.theme--dark.v-application code {
+  background-color: #ffffff00;
 }
 </style>

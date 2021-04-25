@@ -9,6 +9,9 @@ import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
 
+import 'prismjs';
+// import 'prismjs/themes/prism.css';
+
 require('@/styles/styles.css');
 
 Vue.use(Vuex);
