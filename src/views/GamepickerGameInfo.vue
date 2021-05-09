@@ -201,20 +201,20 @@ export default class GamepickerGameInfo extends Vue {
     <h1>Game 1: (${this.g1Console}) ${this.g1Title}</h1>
     <h2>Objective: ${this.g1Objective}</h2>
     <ul>
-    <li>Manual: <a href="${this.g1Manual} target="_blank">${this.g1Manual}</a></li>
-    <li>Wiki: <a href="${this.g1Wiki} target="_blank">${this.g1Wiki}</a></li>
-    <li>Manual: <a href="${this.g1Playthrough} target="_blank">${this.g1Playthrough}</a></li>
-    <li>Playthrough: <a href="${this.g1Manual} target="_blank">${this.g1Manual}</a></li>
+    <li>Manual: <a href="${this.g1Manual}" target="_blank">${this.g1Manual}</a></li>
+    <li>Wiki: <a href="${this.g1Wiki}" target="_blank">${this.g1Wiki}</a></li>
+    <li>Manual: <a href="${this.g1Playthrough}" target="_blank">${this.g1Playthrough}</a></li>
+    <li>Playthrough: <a href="${this.g1Manual}" target="_blank">${this.g1Manual}</a></li>
     <li>Notes: ${this.g1Notes}</li>
     </ul>
 
     <h1>Game 2: (${this.g2Console}) ${this.g2Title}</h1>
     <h2>Objective: ${this.g2Objective}</h2>
     <ul>
-    <li>Manual: <a href="${this.g2Manual} target="_blank">${this.g2Manual}</a></li>
-    <li>Wiki: <a href="${this.g2Wiki} target="_blank">${this.g2Wiki}</a></li>
-    <li>Manual: <a href="${this.g2Playthrough} target="_blank">${this.g2Playthrough}</a></li>
-    <li>Playthrough: <a href="${this.g2Manual} target="_blank">${this.g2Manual}</a></li>
+    <li>Manual: <a href="${this.g2Manual}" target="_blank">${this.g2Manual}</a></li>
+    <li>Wiki: <a href="${this.g2Wiki}" target="_blank">${this.g2Wiki}</a></li>
+    <li>Manual: <a href="${this.g2Playthrough}" target="_blank">${this.g2Playthrough}</a></li>
+    <li>Playthrough: <a href="${this.g2Manual}" target="_blank">${this.g2Manual}</a></li>
     <li>Notes: ${this.g2Notes}</li>
     </ul>
 
