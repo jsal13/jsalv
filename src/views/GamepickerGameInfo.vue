@@ -1,21 +1,14 @@
 <template>
   <div class="gamepicker-game-info">
     <v-row justify="center">
-      <v-col
-        cols="10"
-        offset="1"
-      >
+      <v-col cols="10" offset="1">
         <h1>Gamepicker Game Info Tool</h1>
 
-        <p class="mb-4">
-          Used to help gamepickers give info to commentators for Sneakbike.
-        </p>
+        <p class="mb-4">Used to help gamepickers give info to commentators for Sneakbike.</p>
 
-        <hr>
+        <hr />
 
-        <h2 class="mb-4">
-          Game 1
-        </h2>
+        <h2 class="mb-4">Game 1</h2>
         <v-text-field
           v-model="g1Title"
           class="px-2"
@@ -78,11 +71,9 @@
           outlined
         />
 
-        <hr>
+        <hr />
 
-        <h2 class="mb-4">
-          Game 2
-        </h2>
+        <h2 class="mb-4">Game 2</h2>
         <v-text-field
           v-model="g2Title"
           class="px-2"
@@ -145,57 +136,45 @@
           outlined
         />
 
-        <v-btn @click="downloadHTML">
-          Submit
-        </v-btn>
+        <v-btn @click="downloadHTML">Submit</v-btn>
       </v-col>
     </v-row>
   </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+<script>
 import { saveAs } from 'file-saver';
 
-@Component
-export default class GamepickerGameInfo extends Vue {
-  g1Title = '';
+export default {
+  name: 'GamepickerGameInfo',
+  data() {
+    return {
+      g1Title: '',
+      g1Objective: '',
+      g1Console: '',
+      g1Manual: '',
+      g1Wiki: '',
+      g1Playthrough: '',
+      g1Notes: '',
+      g2Title: '',
+      g2Objective: '',
+      g2Console: '',
+      g2Manual: '',
+      g2Wiki: '',
+      g2Playthrough: '',
+      g2Notes: '',
+    };
+  },
+  methods: {
+    downloadHTML() {
+      const file = new File([this.createHTML], 'README_Gameplayer_Game_Info.html', {
+        type: 'text/plain;charset=utf-8',
+      });
+      saveAs(file);
+    },
 
-  g1Objective = '';
-
-  g1Console = '';
-
-  g1Manual = '';
-
-  g1Wiki = '';
-
-  g1Playthrough = '';
-
-  g1Notes = '';
-
-  g2Title = '';
-
-  g2Objective = '';
-
-  g2Console = '';
-
-  g2Manual = '';
-
-  g2Wiki = '';
-
-  g2Playthrough = '';
-
-  g2Notes = '';
-
-  downloadHTML() {
-    const file = new File([this.createHTML], 'README_Gameplayer_Game_Info.html', {
-      type: 'text/plain;charset=utf-8',
-    });
-    saveAs(file);
-  }
-
-  get createHTML() {
-    return `
+    get createHTML() {
+      return `
     <html><body>
 
     <h1>Game 1: (${this.g1Console}) ${this.g1Title}</h1>
@@ -220,10 +199,10 @@ export default class GamepickerGameInfo extends Vue {
 
     </body></html>
     `;
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

@@ -5,7 +5,9 @@
         <v-row>
           <v-col class="col-10 offset-1">
             <h1 class="text-h1 text-right">
-              Hello.<br> I'm <span class="primary--text">James</span>.
+              Hello.
+              <br />I'm
+              <span class="primary--text">James</span>.
             </h1>
           </v-col>
         </v-row>
@@ -21,46 +23,46 @@
                 height="64px"
                 width="64px"
                 class="mb-1"
-              >
+              />
               <p>
-                I studied <a
+                I studied
+                <a
                   href="https://en.wikipedia.org/wiki/Algebraic_topology"
                   target="_blank"
                 >math</a> for a while, and now I work with a bunch of data trying to learn new things and solve hard problems.
                 Sometimes I'm successful.
               </p>
               <p>
-                I've got a <a
-                  href="https://blog.jsalv.com"
-                  target="_blank"
-                >blog</a> where I do some math and programming things.  I run a retro game racing charity called <a
+                I've got a
+                <a href="https://blog.jsalv.com" target="_blank">blog</a> where I do some math and programming things. I run a retro game racing charity called
+                <a
                   href="https://twitch.tv/sneakbike"
                   target="_blank"
-                > Sneakbike</a> with the help of some good pals.
+                >Sneakbike</a> with the help of some good pals.
               </p>
             </div>
           </v-col>
         </v-row>
       </v-container>
-      <hr>
+      <hr />
       <home-skills />
     </v-container>
   </div>
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator';
 import HomeSkills from '@/components/HomeSkills.vue';
-import Apps from '@/views/Apps.vue';
 
-@Component({ components: { HomeSkills, Apps } })
-export default class Home extends Vue {}
+export default {
+  name: 'Home',
+  components: { HomeSkills },
+};
 </script>
 
 <style scoped>
-.hook-line > img, hook-line > p {
+.hook-line > img,
+hook-line > p {
   float: left;
   align-items: baseline;
 }
-
 </style>

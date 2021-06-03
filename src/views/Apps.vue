@@ -4,9 +4,7 @@
       <v-container>
         <v-row>
           <v-col class="col-10 offset-1">
-            <h2 class="mb-5">
-              Apps
-            </h2>
+            <h2 class="mb-5">Apps</h2>
             <v-row>
               <home-apps-card
                 :image="require('@/assets/images/apps/sneakbike_readme_app.png')"
@@ -44,11 +42,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
 import HomeAppsCard from '@/components/HomeAppsCard.vue';
 
-const descriptionREADME = `An app which allows the user to input controls, objectives, and hints for SNES, NES, Genesis, etc., games.  
+const descriptionREADME = `An app which allows the user to input controls, objectives, and hints for SNES, NES, Genesis, etc., games.
 We use this for Sneakbike, the retro mystery-game racing charity.`;
 
 const descriptionSBRaceDataTool = 'A tool we use in Sneakbike to simplify updating a few different fields with the same data.';
@@ -57,14 +54,16 @@ const descriptionLicensePlatePractice = 'A tool to help learn blurred license pl
 
 const descriptionGamepickerGameInfo = 'Used to help gamepickers give info to commentators for Sneakbike.';
 
-@Component({ components: { HomeAppsCard } })
-export default class Apps extends Vue {
-  descriptionREADME = descriptionREADME;
-
-  descriptionSBRaceDataTool = descriptionSBRaceDataTool;
-
-  descriptionLicensePlatePractice = descriptionLicensePlatePractice;
-
-  descriptionGamepickerGameInfo = descriptionGamepickerGameInfo;
-}
+export default {
+  name: 'Apps',
+  components: { HomeAppsCard },
+  data() {
+    return {
+      descriptionREADME,
+      descriptionSBRaceDataTool,
+      descriptionLicensePlatePractice,
+      descriptionGamepickerGameInfo,
+    };
+  },
+};
 </script>

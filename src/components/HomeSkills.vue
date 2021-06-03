@@ -3,9 +3,7 @@
     <v-container>
       <v-row>
         <v-col class="col-10 offset-1">
-          <h2 class="mb-1">
-            A Tiny Self-Assessment.
-          </h2>
+          <h2 class="mb-1">A Tiny Self-Assessment.</h2>
 
           <p class="mb-5">
             Legend:
@@ -18,14 +16,8 @@
             <v-row>
               <v-col>
                 <div class="skills-section d-flex flex-row flex-wrap">
-                  <home-skills-progress-section
-                    :title="'Good At:'"
-                    :skills="skillsGood"
-                  />
-                  <home-skills-progress-section
-                    :title="'Okay At:'"
-                    :skills="skillsOkay"
-                  />
+                  <home-skills-progress-section :title="'Good At:'" :skills="skillsGood" />
+                  <home-skills-progress-section :title="'Okay At:'" :skills="skillsOkay" />
                 </div>
               </v-col>
             </v-row>
@@ -36,24 +28,17 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
 import HomeSkillsProgressSection from '@/components/HomeSkillsProgressSection.vue';
 
-interface SkillsAttribute {
-  // Experience is 1 - 5, scaled to 100.
-  itemType: string;
-  item: string;
-}
-
-const skillColors: {[itemType: string]: string} = {
+const skillColors = {
   data: '#2196f3',
   code: '#00e676',
   devops: '#8561c5',
   'misc-programming': '#009688',
 };
 
-const skillsGood: SkillsAttribute[] = [
+const skillsGood = [
   { itemType: 'data', item: 'Python & Pandas' },
   { itemType: 'data', item: 'Stats + Linear Algebra' },
   { itemType: 'data', item: 'Data Modeling + Viz' },
@@ -64,7 +49,7 @@ const skillsGood: SkillsAttribute[] = [
   { itemType: 'misc-programming', item: 'HTML, CSS, JS (+ Vuejs)' },
 ];
 
-const skillsOkay: SkillsAttribute[] = [
+const skillsOkay = [
   { itemType: 'data', item: 'R' },
   { itemType: 'devops', item: 'AWS (Solutions Architect), GCP (Cloud Engineer)' },
   { itemType: 'misc-programming', item: 'Typescript' },
@@ -72,14 +57,13 @@ const skillsOkay: SkillsAttribute[] = [
   { itemType: 'misc-programming', item: 'Unity Engine' },
 ];
 
-@Component({ components: { HomeSkillsProgressSection } })
-export default class HomeSkills extends Vue {
-  skillsGood = skillsGood;
-
-  skillsOkay = skillsOkay;
-
-  skillColors = skillColors;
-}
+export default {
+  name: 'HomeSKills',
+  components: { HomeSkillsProgressSection },
+  data() {
+    return { skillsGood, skillsOkay, skillColors };
+  },
+};
 </script>
 <style>
 .skills-section {

@@ -9,23 +9,17 @@
               class="ma-1"
               :class="{'dimmed': consoles[cardNum] !== 'SNES'}"
               @click="setControllerType({console: 'SNES', cardNum: cardNum})"
-            >
-              SNES
-            </v-chip>
+            >SNES</v-chip>
             <v-chip
               class="ma-1"
               :class="{'dimmed': consoles[cardNum] !== 'NES'}"
               @click="setControllerType({console: 'NES', cardNum: cardNum})"
-            >
-              NES
-            </v-chip>
+            >NES</v-chip>
             <v-chip
               class="ma-1"
               :class="{'dimmed': consoles[cardNum] !== 'Genesis'}"
               @click="setControllerType({console: 'Genesis', cardNum: cardNum})"
-            >
-              Genesis
-            </v-chip>
+            >Genesis</v-chip>
           </v-flex>
 
           <v-flex class="d-flex" />
@@ -69,12 +63,7 @@ export default {
     this.setObjective({ cardNum: this.cardNum, val: '' });
   },
   methods: {
-    ...mapMutations('readmeGenerator', [
-      'setControllerType',
-      'setControllerButton',
-      'setHint',
-      'setObjective',
-    ]),
+    ...mapMutations('readmeGenerator', ['setControllerType', 'setControllerButton', 'setHint', 'setObjective']),
   },
 };
 </script>

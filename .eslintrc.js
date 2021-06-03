@@ -4,12 +4,11 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/recommended',
+    'plugin:vue/essential',
     '@vue/airbnb',
-    '@vue/typescript/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    parser: 'babel-eslint'
   },
   rules: {
     'class-methods-use-this': 0,
@@ -23,7 +22,6 @@ module.exports = {
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    '@typescript-eslint/ban-ts-ignore': 0,
     'vue/no-v-html': 0,
   },
 };

@@ -1,10 +1,7 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
-/* eslint quote-props: "off" */
-
 import Vue from 'vue';
 import Vuex from 'vuex';
-// @ts-ignore
 import readmeGenerator from '@/store/readmeGenerator';
+
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
@@ -14,14 +11,15 @@ import 'prismjs';
 
 require('@/styles/styles.css');
 
+Vue.config.productionTip = false;
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  modules: { 'readmeGenerator': readmeGenerator },
+  modules: { readmeGenerator },
   strict: true,
 });
 
-Vue.config.productionTip = false;
 new Vue({
   router,
   store,

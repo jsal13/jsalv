@@ -1,14 +1,8 @@
 <template>
   <div class="license-plate-practice">
-    <v-card
-      class="mx-auto container"
-      max-width="350"
-    >
+    <v-card class="mx-auto container" max-width="350">
       <v-card-text>
-        <v-row
-          align="center"
-          class="mb-5"
-        >
+        <v-row align="center" class="mb-5">
           <v-col cols="6">
             <v-img
               :src="currentLicensePlatePath"
@@ -18,44 +12,24 @@
             />
           </v-col>
           <v-col cols="6">
-            <v-btn
-              @click="CheckState"
-            >
-              Submit
-            </v-btn>
-            <v-btn
-              class="mt-2"
-              @click="NextState"
-            >
-              Next State
-            </v-btn>
+            <v-btn @click="CheckState">Submit</v-btn>
+            <v-btn class="mt-2" @click="NextState">Next State</v-btn>
           </v-col>
         </v-row>
         <v-row class="mb-5">
-          <v-autocomplete
-            v-model="userGuess"
-            :items="states"
-            dense
-          />
+          <v-autocomplete v-model="userGuess" :items="states" dense />
         </v-row>
         <v-row>
-          <span
-            class="state-name"
-            v-html="msgCheckState"
-          />
+          <span class="state-name" v-html="msgCheckState" />
         </v-row>
       </v-card-text>
     </v-card>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HomeSkills from '@/components/HomeSkills.vue';
-import Apps from '@/views/Apps.vue';
-
+<script>
 /* eslint-disable */
-const stateToStateAbbr: {[state: string]: string} = {
+const stateToStateAbbr = {
   alabama: 'AL',
   alaska: 'AK',
   arizona: 'AZ',
@@ -109,64 +83,59 @@ const stateToStateAbbr: {[state: string]: string} = {
 };
 /* eslint-enable */
 
-@Component({ components: { HomeSkills, Apps } })
-export default class LicensePlatePractice extends Vue {
-  stateToStateAbbr = stateToStateAbbr;
-
-  states = Object.values(this.stateToStateAbbr);
-
-  styleRandomBlur = ''
-
-  randomLicensePicHeight = 100
-
-  msgCheckState = ''
-
-  currentLicensePlatePath = ''
-
-  currentState = ''
-
-  currentStateAbbr = ''
-
-  userGuess = '';
+export default {
+  name: 'LicensePlatePractice',
+  data() {
+    return {
+      stateToStateAbbr,
+      states: Object.values(stateToStateAbbr),
+      styleRandomBlur: '',
+      randomLicensePicHeight: 100,
+      msgCheckState: '',
+      currentLicensePlatePath: '',
+      currentState: '',
+      currentStateAbbr: '',
+      userGuess: '',
+    };
+  },
 
   created() {
     this.GetImage();
-  }
+  },
+  methods: {
+    GetRandomBlur() {
+      this.styleRandomBlur = `-webkit-filter: blur(${Math.floor(Math.random() * 5 + 2)}px);`;
+    },
 
-  GetRandomBlur() {
-    this.styleRandomBlur = `-webkit-filter: blur(${Math.floor((Math.random() * 5) + 2)}px);`;
-  }
+    GetRandomLicensePicHeight() {
+      this.randomLicensePicHeight = Math.floor(Math.random() * 55 + 20);
+    },
 
-  GetRandomLicensePicHeight() {
-    this.randomLicensePicHeight = Math.floor((Math.random() * 55) + 20);
-  }
+    GetImage() {
+      this.GetRandomBlur();
+      this.GetRandomLicensePicHeight();
 
-  GetImage() {
-    this.GetRandomBlur();
-    this.GetRandomLicensePicHeight();
+      const n = Math.floor(Math.random() * Object.keys(this.stateToStateAbbr).length);
+      this.currentState = Object.keys(this.stateToStateAbbr)[n];
+      this.currentStateAbbr = this.stateToStateAbbr[this.currentState];
+      this.currentLicensePlatePath = `/license_plates/${this.currentState}.jpg`;
+    },
 
-    const n = Math.floor(Math.random() * Object.keys(this.stateToStateAbbr).length);
-    this.currentState = Object.keys(this.stateToStateAbbr)[n];
-    this.currentStateAbbr = this.stateToStateAbbr[this.currentState];
-    this.currentLicensePlatePath = `/license_plates/${this.currentState}.jpg`;
-  }
-
-  CheckState() {
-    if (this.userGuess === this.currentStateAbbr) {
-      this.msgCheckState = '<span style="color: green;"> Correct!</span>';
-    } else {
-      this.msgCheckState = `<span style="color: red;">${this.currentState.replace('_', ' ')}</span>`;
-    }
-    this.styleRandomBlur = '';
-  }
-
-  NextState() {
-    this.GetImage();
-    this.userGuess = '';
-    this.msgCheckState = '';
-  }
-}
-
+    CheckState() {
+      if (this.userGuess === this.currentStateAbbr) {
+        this.msgCheckState = '<span style="color: green;"> Correct!</span>';
+      } else {
+        this.msgCheckState = `<span style="color: red;">${this.currentState.replace('_', ' ')}</span>`;
+      }
+      this.styleRandomBlur = '';
+    },
+    NextState() {
+      this.GetImage();
+      this.userGuess = '';
+      this.msgCheckState = '';
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -176,7 +145,7 @@ export default class LicensePlatePractice extends Vue {
 }
 
 .state-name {
-font-weight: bold;
+  font-weight: bold;
   text-transform: capitalize;
 }
 </style>

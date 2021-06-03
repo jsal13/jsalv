@@ -1,10 +1,7 @@
 <template>
   <div class="race-data-tool">
     <v-row justify="center">
-      <v-col
-        cols="10"
-        offset="1"
-      >
+      <v-col cols="10" offset="1">
         <h1>Race Data Tool</h1>
 
         <p class="mb-4">
@@ -15,7 +12,7 @@
           >Sneaksquad Googledoc</a>.
         </p>
 
-        <hr>
+        <hr />
         <div class="my-4">
           <v-flex class="d-flex flex-wrap">
             <v-text-field
@@ -97,53 +94,38 @@
             outlined
           />
         </div>
-        <hr>
+        <hr />
 
         <div class="my-4">
-          <h3 class="mb-4">
-            Nightbot Commands:
-          </h3>
+          <h3 class="mb-4">Nightbot Commands:</h3>
 
           <ul>
-            <li class="command-item mb-2 accent--text">
-              !game Retro
-            </li>
+            <li class="command-item mb-2 accent--text">!game Retro</li>
             <li
               class="command-item mb-2 accent--text"
-            >
-              !title Sneakbike Mystery Race with Friends! :']
-            </li>
-            <li class="command-item mb-2 accent--text">
-              !commands edit !runners {{ runnersString }}
-            </li>
+            >!title Sneakbike Mystery Race with Friends! :']</li>
+            <li class="command-item mb-2 accent--text">!commands edit !runners {{ runnersString }}</li>
             <li
               class="command-item mb-2 accent--text"
-            >
-              !commands edit !commentators The lovely voices you're hearing: {{ commentatorsString }}
-            </li>
+            >!commands edit !commentators The lovely voices you're hearing: {{ commentatorsString }}</li>
           </ul>
         </div>
-        <hr>
+        <hr />
 
         <div class="my-4">
-          <h3 class="mb-4">
-            Wiki Records Code:
-          </h3>
+          <h3 class="mb-4">Wiki Records Code:</h3>
           <p>
-            Copy-paste this code into the source code of <a
+            Copy-paste this code into the source code of
+            <a
               href="https://wiki.sneak.bike/e/en/general-resources/sneakbike-races"
               target="_blank"
-            >the wiki for Sneakbike race history</a>.  Go to the page and hit "Edit" to look at the source code.
+            >the wiki for Sneakbike race history</a>. Go to the page and hit "Edit" to look at the source code.
           </p>
-          <prism language="html">
-            {{ wikiCode }}
-          </prism>
+          <prism language="html">{{ wikiCode }}</prism>
         </div>
 
         <div class="my-4">
-          <h3 class="mb-4">
-            Sneaksquad Row:
-          </h3>
+          <h3 class="mb-4">Sneaksquad Row:</h3>
           <p>
             Copy-paste the row values into the
             <a
@@ -204,12 +186,7 @@ export default {
   },
   computed: {
     runnersString() {
-      return this.addTwitchURL([
-        this.nameRunner1,
-        this.nameRunner2,
-        this.nameRunner3,
-        this.nameRunner4,
-      ]).join(' || ');
+      return this.addTwitchURL([this.nameRunner1, this.nameRunner2, this.nameRunner3, this.nameRunner4]).join(' || ');
     },
     commentatorsString() {
       return this.addTwitchURL([this.nameC1, this.nameC2]).join(' || ');
@@ -218,9 +195,15 @@ export default {
       return `<tr>
   <td>MM/DD/YYYY</td>
   <td>${this.difficulty !== null ? this.difficulty.toLowerCase() : ''}</td>
-  <td>${[this.nameC1, this.nameC2].filter((x) => x).map((x) => x.toLowerCase()).join(', ')}</td>
+  <td>${[this.nameC1, this.nameC2]
+    .filter((x) => x)
+    .map((x) => x.toLowerCase())
+    .join(', ')}</td>
   <td>${this.nameGamePicker ? this.nameGamePicker.toLowerCase() : this.nameGamePicker}</td>
-  <td>${[this.nameRunner1, this.nameRunner2, this.nameRunner3, this.nameRunner4].filter((x) => x).map((x) => x.toLowerCase()).join(', ')}</td>
+  <td>${[this.nameRunner1, this.nameRunner2, this.nameRunner3, this.nameRunner4]
+    .filter((x) => x)
+    .map((x) => x.toLowerCase())
+    .join(', ')}</td>
   <td>${this.gamesAndConsole}</td>
   <td><a href="LINKTOYOUTUBE" target="_blank">Link</a></td>
 </tr>`;
@@ -228,9 +211,7 @@ export default {
   },
   methods: {
     addTwitchURL(sArray) {
-      return sArray
-        .map((s) => (s !== null ? `https://twitch.tv/${s}` : null))
-        .filter((x) => x);
+      return sArray.map((s) => (s !== null ? `https://twitch.tv/${s}` : null)).filter((x) => x);
     },
   },
 };

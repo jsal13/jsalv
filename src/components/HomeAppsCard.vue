@@ -1,46 +1,30 @@
 <template>
   <div class="home-apps-card">
-    <div
-      class="card"
-      style="width: 250px;"
-    >
+    <div class="card" style="width: 250px;">
       <router-link :to="link">
-        <img
-          :src="image"
-          class="card-img-top"
-          :alt="title"
-          width="200"
-        >
+        <img :src="image" class="card-img-top" :alt="title" width="200" />
       </router-link>
       <div class="card-body">
         <h5 class="card-title">
-          <router-link :to="link">
-            {{ title }}
-          </router-link>
+          <router-link :to="link">{{ title }}</router-link>
         </h5>
-        <p class="card-text">
-          {{ description }}
-        </p>
+        <p class="card-text">{{ description }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-
-@Component
-export default class HomeAppsCard extends Vue {
-  @Prop() image!: string;
-
-  @Prop() description!: string;
-
-  @Prop() alt!: string;
-
-  @Prop() title!: string;
-
-  @Prop() link!: string;
-}
+<script>
+export default {
+  name: 'HomeAppsCard',
+  props: {
+    image: { type: String },
+    description: { type: String },
+    alt: { type: String },
+    title: { type: String },
+    link: { type: String },
+  },
+};
 </script>
 
 <style scoped>
