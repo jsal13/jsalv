@@ -9,6 +9,7 @@ module.exports = {
   ],
   parserOptions: {
     parser: 'babel-eslint'
+    //ecmaVersion: 2020
   },
   rules: {
     'class-methods-use-this': 0,

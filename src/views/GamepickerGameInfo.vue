@@ -167,13 +167,13 @@ export default {
   },
   methods: {
     downloadHTML() {
-      const file = new File([this.createHTML], 'README_Gameplayer_Game_Info.html', {
+      const file = new File([this.createHTML()], 'README_Gameplayer_Game_Info.html', {
         type: 'text/plain;charset=utf-8',
       });
       saveAs(file);
     },
 
-    get createHTML() {
+    createHTML() {
       return `
     <html><body>
 

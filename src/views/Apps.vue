@@ -34,6 +34,13 @@
                 :link="'/app/license-plate-practice'"
                 class="mx-4"
               />
+              <home-apps-card
+                :image="require('@/assets/images/apps/topic-generator.png')"
+                :description="descriptionTopicGenerator"
+                :title="'Topic Generator'"
+                :link="'/app/topic-generator'"
+                class="mx-4"
+              />
             </v-row>
           </v-col>
         </v-row>
@@ -54,6 +61,8 @@ const descriptionLicensePlatePractice = 'A tool to help learn blurred license pl
 
 const descriptionGamepickerGameInfo = 'Used to help gamepickers give info to commentators for Sneakbike.';
 
+const descriptionTopicGenerator = 'Used to help generate topics with random nouns, verbs, adjectives; eg, for writing or naming.';
+
 export default {
   name: 'Apps',
   components: { HomeAppsCard },
@@ -63,6 +72,7 @@ export default {
       descriptionSBRaceDataTool,
       descriptionLicensePlatePractice,
       descriptionGamepickerGameInfo,
+      descriptionTopicGenerator,
     };
   },
 };

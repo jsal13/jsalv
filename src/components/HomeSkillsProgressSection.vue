@@ -16,7 +16,7 @@ const skillColors = {
 
 export default {
   name: 'HomeSkillProgressSection',
-  props: { skills: { type: Object }, title: { type: String } },
+  props: { skills: { type: Uint8Array }, title: { type: String } },
   data() {
     return { skillColors };
   },

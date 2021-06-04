@@ -7,6 +7,7 @@ import ReadmeGen from '@/views/ReadmeGen.vue';
 import SBRaceDataTool from '@/views/SBRaceDataTool.vue';
 import GamepickerGameInfo from '@/views/GamepickerGameInfo.vue';
 import LicensePlatePractice from '@/views/LicensePlatePractice.vue';
+import TopicGenerator from '@/views/TopicGenerator.vue';
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,11 @@ const routes = [
     path: '/app/license-plate-practice',
     name: 'LicensePlatePractice',
     component: LicensePlatePractice,
+  },
+  {
+    path: '/app/topic-generator',
+    name: 'TopicGenerator',
+    component: TopicGenerator,
   },
 ];
 
